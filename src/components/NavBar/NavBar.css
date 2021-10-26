@@ -1,0 +1,46 @@
+:root {
+  --color--one: #d43a0b;
+  --color--two: black;
+}
+body {
+  margin: 0;
+}
+.container {
+  width: 80vw;
+  margin: 0 auto;
+}
+#main-header {
+  width: 100%;
+  background-color: var(--color--one);
+}
+.nav-link {
+  padding: 5px 15px;
+  color: black;
+}
+.nav-link:hover {
+  cursor: pointer;
+  background-color: var(--color--two);
+  color: #fff;
+}
+.nav-link.active {
+  background-color: var(--color--two);
+  color: #fff;
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+}
+.navigation ul {
+  display: flex;
+  align-items: center;
+}
+.navigation ul li {
+  margin-right: 20px;
+  list-style: none;
+}
+.navigation a {
+  text-decoration: none;
+}
+.navigation ul li:last-of-type {
+  margin-right: 0;
+}
