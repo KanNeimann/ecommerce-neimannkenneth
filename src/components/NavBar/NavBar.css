@@ -38,9 +38,12 @@ body {
   margin-right: 20px;
   list-style: none;
 }
+.navigation ul a {
+  margin-right: 20px;
+}
 .navigation a {
   text-decoration: none;
 }
-.navigation ul li:last-of-type {
+.navigation ul a:last-of-type {
   margin-right: 0;
 }
