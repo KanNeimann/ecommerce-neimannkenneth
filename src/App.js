@@ -1,10 +1,11 @@
-import NavBar from './components/NavBar/NavBar.jsx'
+import Header from './components/Header/Header'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-
+      <Header />
+      <ItemListContainer saludo={"Holaa"} />
     </div>
   );
 }
