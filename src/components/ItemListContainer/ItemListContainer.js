@@ -1,10 +1,10 @@
-import React from 'react'
+import './ItemListContainer.css'
+import ItemCount from '../ItemCount/ItemCount'
 
 const ItemListContainer = (props) => {
-    let { saludo } = props
     return (
-        <div>
-            <h3>{saludo}</h3>
+        <div className="contenido">
+            <ItemCount />
         </div>
     )
 }

@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.producto {
+  background-color: rgb(252, 246, 246);
+  padding: 25px 20px;
+  border-radius: 10px;
+}
+.contador {
+  display: flex;
+  justify-content: center;
+}
+.contador button {
+  width: 30%;
+  margin: 0 15px;
+}
