@@ -1,0 +1,11 @@
+.producto {
+  padding: 20px;
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.productoImagen {
+  width: 100px;
+}
