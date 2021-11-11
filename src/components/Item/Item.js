@@ -1,4 +1,3 @@
-import React from 'react'
 import "./Item.css";
 
 function Item({ title, img, category, price, id }) {

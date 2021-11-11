@@ -1,6 +1,5 @@
 import './ItemListContainer.css'
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ItemCount from '../ItemCount/ItemCount'
 import Spinner from '../Spinner/Spinner';
 
@@ -16,16 +15,16 @@ const productos = [
 
 const getFetch = new Promise((resolve, reject) => {
     //url
-    const condition = true
-    if (condition) {
-        setTimeout(() => {
-            resolve(productos)
-        }, 2000)
-    } else {
-        setTimeout(() => {
-            reject('404 not found')
-        }, 2000)
-    }
+
+
+    setTimeout(() => {
+        resolve(productos)
+    }, 2000)
+
+    /* setTimeout(() => {
+        reject('404 not found')
+    }, 2000) */
+
 })
 
 const ItemListContainer = (props) => {
