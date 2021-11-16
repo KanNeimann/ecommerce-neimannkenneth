@@ -1,5 +1,4 @@
 import NavBar from "../NavBar/NavBar";
-import Container from "../Container/Container";
 import CartWidget from '../CartWidget/CartWidget'
 import './Header.css'
 import { Link } from 'react-router-dom'
