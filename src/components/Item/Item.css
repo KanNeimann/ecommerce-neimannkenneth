@@ -5,7 +5,12 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  background-color: antiquewhite;
 }
 .productoImagen {
   width: 100px;
+  align-self: center;
+}
+a {
+  text-decoration: none;
 }

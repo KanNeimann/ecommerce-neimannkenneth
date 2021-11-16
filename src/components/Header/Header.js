@@ -2,20 +2,23 @@ import NavBar from "../NavBar/NavBar";
 import Container from "../Container/Container";
 import CartWidget from '../CartWidget/CartWidget'
 import './Header.css'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
 
     return (
         <header id="main-header">
-            <Container className="head-content">
+            <div className="head-content">
                 <div className="logo">
-                    <h2>Volcanic</h2>
+                    <Link to='/' className='titulo'>
+                        <h2>Volcanic</h2>
+                    </Link>
                 </div>
                 <div className="content">
                     <NavBar />
                     <CartWidget />
                 </div>
-            </Container>
+            </div>
         </header>
     )
 

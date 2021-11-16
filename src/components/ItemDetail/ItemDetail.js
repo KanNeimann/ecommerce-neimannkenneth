@@ -2,7 +2,6 @@
 
 function ItemDetail(product) {
     const { title, img, price, description, id } = product
-    console.log(product)
 
     return (
         <div key={id} className="producto">
