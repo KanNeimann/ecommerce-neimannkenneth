@@ -47,3 +47,6 @@ body {
 .navigation ul a:last-of-type {
   margin-right: 0;
 }
+.navLi {
+  color: black;
+}

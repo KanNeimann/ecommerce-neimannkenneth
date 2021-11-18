@@ -43,7 +43,7 @@ const ItemListContainer = (props) => {
         if (catId) {
             getFetch
                 .then(res => {
-                    console.log('Llamada a la api')
+                    //console.log('Llamada a la api')
                     setProducts(res.filter(prod => prod.category === catId))
                 })
                 .catch((err) => console.log(err))
@@ -52,7 +52,7 @@ const ItemListContainer = (props) => {
         } else {
             getFetch
                 .then(res => {
-                    console.log('Llamada a la api')
+                    //console.log('Llamada a la api')
                     setProducts(res)
                 })
                 .catch((err) => console.log(err))

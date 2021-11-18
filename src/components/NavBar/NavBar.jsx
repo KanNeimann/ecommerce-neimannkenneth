@@ -7,11 +7,11 @@ const NavBar = () => {
         <div>
                 <nav className="navigation">
                     <ul className="nav-links">
-                        <Link to='/'>Home</Link>
-                        <Link to='/category/graficas'>Graficas</Link>
-                        <Link to='/category/procesadores'>Procesadores</Link>
-                        <Link to='/category/rams'>Rams</Link>
-                        <Link to='/category/ssds'>SSDs</Link>
+                        <Link className="navLi" to='/'>Home</Link>
+                        <Link className="navLi" to='/category/graficas'>Graficas</Link>
+                        <Link className="navLi" to='/category/procesadores'>Procesadores</Link>
+                        <Link className="navLi" to='/category/rams'>Rams</Link>
+                        <Link className="navLi" to='/category/ssds'>SSDs</Link>
                     </ul>
                 </nav>
         </div>

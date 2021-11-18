@@ -1,7 +1,25 @@
 import './ItemCount.css'
-import React, { useState } from 'react';
+import { useState } from 'react'
+import { Link, Route } from 'react-router-dom'
+
 
 function ItemCount({ stock }) {
+
+    const InputCount = () => {
+
+        return <Link to="/cart"><button onClick={() => <Route exact path="/cart"></Route>} >Ir al Cart o Terminar compra</button></Link>
+    }
+
+    const ButtonCount = ({ handleInter }) => {
+        return <button onClick={handleInter}>Agregar Al carrito</button>
+
+    }
+
+    const [inputType, setInputType] = useState('button')
+
+    const handleInter = () => {
+        setInputType('input')
+    }
 
     const [count, setCount] = useState(0);
 
@@ -13,8 +31,6 @@ function ItemCount({ stock }) {
         setCount(count - 1)
     }
 
-
-
     return (
         <div className='producto'>
             <p>Camisa</p>
@@ -23,7 +39,14 @@ function ItemCount({ stock }) {
                 <p>{count}</p>
                 <button onClick={() => count < stock && onAdd()}>+</button>
             </div>
-            <button onClick={() => alert(`Agregaste ${count} cantidad`)}>Agregar al carrito</button>
+
+            {
+                inputType === 'button' ?
+                    <ButtonCount handleInter={handleInter} />
+
+                    :
+                    <InputCount />
+            }
         </div>
     )
 }
