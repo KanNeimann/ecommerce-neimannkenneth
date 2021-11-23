@@ -15,7 +15,10 @@ const Header = () => {
                 </div>
                 <div className="content">
                     <NavBar />
-                    <CartWidget />
+                    <Link to="/cart">
+                        <CartWidget />
+                    </Link>
+
                 </div>
             </div>
         </header>

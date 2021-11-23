@@ -1,14 +1,22 @@
 import './ItemCount.css'
 //import { useState } from 'react'
 
-function ItemCount({ stock, ButtonCount, handleInter, count, onAdd, onSub }) {
+function ItemCount({ stock, initial, ButtonCount, handleInter, count, setCount, onAdd }) {
+
+    const handlerAdd = () => {
+        setCount(count + 1)
+    }
+
+    const handlerRm = () => {
+        if (count > initial) setCount(count - 1)
+    }
 
     return (
         <div className='producto'>
             <div className='contador'>
-                <button onClick={() => count > 0 && onSub()}>-</button>
+                <button onClick={handlerRm}>-</button><br />
                 <p>{count}</p>
-                <button onClick={() => count < stock && onAdd()}>+</button>
+                <button onClick={handlerAdd}>+</button>
             </div>
             <ButtonCount handleInter={handleInter} />
         </div>

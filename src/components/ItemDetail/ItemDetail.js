@@ -1,22 +1,32 @@
 import ItemCount from '../ItemCount/ItemCount';
 import { useState } from 'react';
-import { Link, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useCartContext } from '../context/CartContext';
 
-function ItemDetail({ product, count, setCount, onAdd, onSub }) {
+function ItemDetail({ product }) {
     const { title, img, price, description, id, stock } = product
+
+    const [count, setCount] = useState(1);
+    const { agregarCarrito } = useCartContext()
+
+
+    const onAdd = () => {
+        agregarCarrito({ ...product, cantidad: count })
+    }
 
     const [inputType, setInputType] = useState('button')
 
     const handleInter = () => {
+        onAdd()
         setInputType('input')
     }
 
     const InputCount = () => {
-        return <Link to="/cart"><button onClick={() => <Route exact path="/cart"></Route>} >Ir al Cart o Terminar compra</button></Link>
+        return <Link to="/cart"><button> Ir al Cart o Terminar compra</button></Link>
     }
 
-    const ButtonCount = ({ handleInter }) => {
-        return <button onClick={handleInter}>Agregar Al carrito</button>
+    const ButtonCount = ({ product, count }) => {
+        return <button onClick={handleInter} > Agregar Al carrito</ button>
     }
 
     return (
@@ -30,7 +40,7 @@ function ItemDetail({ product, count, setCount, onAdd, onSub }) {
 
             {
                 inputType === 'button' ?
-                    <ItemCount stock={stock} handleInter={handleInter} ButtonCount={ButtonCount} count={count} onAdd={onAdd} onSub={onSub} />
+                    <ItemCount stock={stock} initial={0} handleInter={handleInter} ButtonCount={ButtonCount} count={count} setCount={setCount} onAdd={onAdd} />
                     :
                     < InputCount />
             }

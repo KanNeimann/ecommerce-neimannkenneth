@@ -1,24 +1,31 @@
-import Header from './components/Header/Header'
+import Header from './components/Header/Header';
+import Cart from './components/Cart/Cart';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CartContextProvider } from './components/context/CartContext';
+
 
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route exact path='/' element={<ItemListContainer />} />
+    <CartContextProvider>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Routes>
+            <Route exact path='/' element={<ItemListContainer />} />
 
-          <Route exact path='/category/:catId' element={<ItemListContainer />} />
+            <Route exact path='/category/:catId' element={<ItemListContainer />} />
 
-          <Route exact path='/item/:itemId' element={<ItemDetailContainer />} />
+            <Route exact path='/item/:itemId' element={<ItemDetailContainer />} />
 
-        </Routes>
-      </div>
-    </BrowserRouter>
+            <Route exact path="/cart" element={<Cart />} />
+
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </CartContextProvider>
   );
 }
 
