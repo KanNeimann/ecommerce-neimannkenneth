@@ -8,14 +8,36 @@ export const useCartContext = () => {
 
 export const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([])
+    const [cantItems, setCantItems] = useState(0)
+    const [precioTotal, setPrecioTotal] = useState(0)
+
+    const actualizarPrecioTotal = (cartListLocal) => {
+        let precio = 0;
+        cartListLocal.map((producto) => precio += Number(producto.price) * producto.cantidad);
+        setPrecioTotal(precio);
+    }
+
+    const actualizarContadorItems = (cantidad, operador) => {
+        const cantParseada = parseInt(cantidad)
+        if (operador === '+') {
+            setCantItems(cantItems + cantParseada)
+        } else {
+            setCantItems(cantItems - cantParseada)
+        }
+
+    }
 
     const agregarCarrito = (item) => {
+        var cartListLocal = cartList;
         if (isInCart(item.id)) {
-            const posicion = cartList.findIndex((product) => product.id === item.id)
-            cartList[posicion].cantidad += item.cantidad
+            const posicion = cartList.findIndex((product) => product.id === item.id);
+            cartList[posicion].cantidad += item.cantidad;
         } else {
-            setCartList([...cartList, item])
+            cartListLocal = [...cartList, item]
+            setCartList([...cartList, item]);
         }
+        actualizarContadorItems(item.cantidad, '+');
+        actualizarPrecioTotal(cartListLocal);
     }
 
     const isInCart = (id) => {
@@ -27,18 +49,26 @@ export const CartContextProvider = ({ children }) => {
 
     const clear = () => {
         setCartList([])
+        setCantItems(0)
+        setPrecioTotal(0)
     }
     const removeItem = (id) => {
         if (isInCart(id)) {
-            const posicion = cartList.findIndex((product) => product.id === id)
-            cartList.splice(posicion, 1)
-            console.log('eliminado');
+            const producto = cartList.filter((product) => product.id === id)
+            actualizarContadorItems(producto[0].cantidad, '-')
+
+            const updatedList = cartList.filter((product) => product.id !== id);
+            setCartList(updatedList);
+            actualizarPrecioTotal(updatedList);
+
         }
     }
 
     return (
         <CartContext.Provider value={{
             cartList,
+            cantItems,
+            precioTotal,
             agregarCarrito,
             clear,
             removeItem

@@ -1,4 +1,6 @@
 .header-cart {
   display: flex;
   align-items: center;
+  padding-left: 40px;
+  color: black;
 }

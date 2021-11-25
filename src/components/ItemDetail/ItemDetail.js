@@ -2,6 +2,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../context/CartContext';
+import './ItemDetail.css'
 
 function ItemDetail({ product }) {
     const { title, img, price, description, id, stock } = product
@@ -22,7 +23,7 @@ function ItemDetail({ product }) {
     }
 
     const InputCount = () => {
-        return <Link to="/cart"><button> Ir al Cart o Terminar compra</button></Link>
+        return <Link to="/cart"><button className='botonCarrito'>Terminar compra</button></Link>
     }
 
     const ButtonCount = ({ product, count }) => {

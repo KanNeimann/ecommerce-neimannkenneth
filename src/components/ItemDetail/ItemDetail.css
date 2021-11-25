@@ -1,0 +1,8 @@
+.botonCarrito {
+  padding: 10px 15px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: green;
+  margin: 3vh;
+  font-weight: bold;
+}

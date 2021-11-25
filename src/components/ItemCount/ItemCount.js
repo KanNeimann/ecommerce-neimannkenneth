@@ -4,11 +4,17 @@ import './ItemCount.css'
 function ItemCount({ stock, initial, ButtonCount, handleInter, count, setCount, onAdd }) {
 
     const handlerAdd = () => {
-        setCount(count + 1)
+        if (count < stock) {
+            setCount(count + 1)
+        }
+
     }
 
     const handlerRm = () => {
-        if (count > initial) setCount(count - 1)
+
+        if (count > initial) {
+            setCount(count - 1)
+        }
     }
 
     return (
