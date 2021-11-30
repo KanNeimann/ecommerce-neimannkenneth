@@ -13,7 +13,7 @@ export const CartContextProvider = ({ children }) => {
 
     const actualizarPrecioTotal = (cartListLocal) => {
         let precio = 0;
-        cartListLocal.map((producto) => precio += Number(producto.price) * producto.cantidad);
+        cartListLocal.map((producto) => precio = producto.price * producto.cantidad)
         setPrecioTotal(precio);
     }
 
@@ -36,12 +36,14 @@ export const CartContextProvider = ({ children }) => {
             cartListLocal = [...cartList, item]
             setCartList([...cartList, item]);
         }
+
         actualizarContadorItems(item.cantidad, '+');
         actualizarPrecioTotal(cartListLocal);
     }
 
     const isInCart = (id) => {
         if (cartList.find((product) => product.id === id)) {
+
             return true
         }
         return false

@@ -19,7 +19,6 @@ const Cart = () => {
                         <table className="tabla">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>Producto</th>
                                     <th>Precio</th>
                                     <th>Thumbnail</th>
@@ -28,12 +27,12 @@ const Cart = () => {
                             </thead>
                             {cartList.map((prop) =>
 
+
                                 <tbody key={prop.id}>
                                     <tr>
-                                        <td>{prop.id}</td>
                                         <td>{prop.title}</td>
                                         <td>{prop.price}</td>
-                                        <td><img alt={prop.title} src={prop.img} style={{ maxWidth: 50 }} /></td>
+                                        <td><img alt={prop.title} src={prop.urlImage} style={{ maxWidth: 50 }} /></td>
                                         <td>{prop.cantidad}</td>
                                         <td><button onClick={() => removeItem(prop.id)}>eliminar</button></td>
                                     </tr>

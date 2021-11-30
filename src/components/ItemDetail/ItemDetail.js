@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom'
 import { useCartContext } from '../context/CartContext';
 import './ItemDetail.css'
 
-function ItemDetail({ product }) {
-    const { title, img, price, description, id, stock } = product
+function ItemDetail(product) {
+    const { title, urlImage, price, description, id, stock } = product.product
 
     const [count, setCount] = useState(1);
     const { agregarCarrito } = useCartContext()
 
 
     const onAdd = () => {
-        agregarCarrito({ ...product, cantidad: count })
+        agregarCarrito({ title, urlImage, price, description, id, stock, cantidad: count })
     }
 
     const [inputType, setInputType] = useState('button')
@@ -33,7 +33,7 @@ function ItemDetail({ product }) {
     return (
         <div key={id} className="producto">
             <h1>{title}</h1>
-            <img src={img} alt={title} className="productoImagen"></img>
+            <img src={urlImage} alt={title} className="productoImagen"></img>
             <p>Precio: ${price}</p>
             <h2>{description}</h2>
             <h3>Stock: {stock}</h3>

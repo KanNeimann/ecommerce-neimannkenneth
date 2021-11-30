@@ -8,8 +8,8 @@ const NavBar = () => {
                 <nav className="navigation">
                     <ul className="nav-links">
                         <Link className="navLi" to='/'>Home</Link>
-                        <Link className="navLi" to='/category/graficas'>Graficas</Link>
-                        <Link className="navLi" to='/category/procesadores'>Procesadores</Link>
+                        <Link className="navLi" to='/category/gpus'>Graficas</Link>
+                        <Link className="navLi" to='/category/cpus'>Procesadores</Link>
                         <Link className="navLi" to='/category/rams'>Rams</Link>
                         <Link className="navLi" to='/category/ssds'>SSDs</Link>
                     </ul>
