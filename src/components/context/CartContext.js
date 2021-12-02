@@ -13,7 +13,7 @@ export const CartContextProvider = ({ children }) => {
 
     const actualizarPrecioTotal = (cartListLocal) => {
         let precio = 0;
-        cartListLocal.map((producto) => precio = producto.price * producto.cantidad)
+        cartListLocal.map((producto) => precio += producto.price * producto.cantidad)
         setPrecioTotal(precio);
     }
 

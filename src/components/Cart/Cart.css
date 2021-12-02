@@ -18,3 +18,13 @@
   margin-top: 25vh;
   margin-bottom: 10vh;
 }
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 25vh;
+  margin-top: 2rem;
+}
+label {
+  font-weight: bold;
+}
