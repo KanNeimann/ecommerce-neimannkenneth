@@ -6,6 +6,9 @@
   flex-direction: column;
   text-align: center;
   background-color: antiquewhite;
+  width: 250px;
+  height: 200px;
+  border-radius: 10px;
 }
 .productoImagen {
   width: 100px;

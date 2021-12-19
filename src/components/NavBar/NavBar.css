@@ -50,3 +50,6 @@ body {
 .navLi {
   color: black;
 }
+.active {
+  font-weight: 700;
+}

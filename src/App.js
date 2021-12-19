@@ -3,7 +3,7 @@ import Cart from './components/Cart/Cart';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { CartContextProvider } from './components/context/CartContext';
+import { CartContextProvider } from './context/CartContext';
 
 
 

@@ -1,17 +1,16 @@
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import './NavBar.css'
-
 
 const NavBar = () => {
     return (
         <div>
                 <nav className="navigation">
                     <ul className="nav-links">
-                        <Link className="navLi" to='/'>Home</Link>
-                        <Link className="navLi" to='/category/gpus'>Graficas</Link>
-                        <Link className="navLi" to='/category/cpus'>Procesadores</Link>
-                        <Link className="navLi" to='/category/rams'>Rams</Link>
-                        <Link className="navLi" to='/category/ssds'>SSDs</Link>
+                        <NavLink className="navLi" to='/' activeClassName='active'>Home</NavLink>
+                        <NavLink className="navLi" to='/category/gpus' >Graficas</NavLink>
+                        <NavLink className="navLi" to='/category/cpus' >Procesadores</NavLink>
+                        <NavLink className="navLi" to='/category/rams' >Rams</NavLink>
+                        <NavLink className="navLi" to='/category/ssds' >SSDs</NavLink>
                     </ul>
                 </nav>
         </div>
@@ -19,7 +18,3 @@ const NavBar = () => {
 }
 
 export default NavBar
-//rafce
-
-/* llamar en App.js <NabVar/> importarla tambien arriba  on import './components/NavBar/NavBar'
-puedo importar estilos arriba de este archivo con un archivo css con el mismo nombre que el componente*/

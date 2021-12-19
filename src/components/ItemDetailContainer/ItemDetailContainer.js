@@ -3,6 +3,7 @@ import Spinner from '../Spinner/Spinner';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom'
 import { getFirestore } from '../../service/getFirestore';
+import './ItemDetailContainer.css'
 
 
 const ItemDetailContainer = (props) => {

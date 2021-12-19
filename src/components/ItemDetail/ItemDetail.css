@@ -6,3 +6,13 @@
   margin: 3vh;
   font-weight: bold;
 }
+.productoDetalle {
+  padding: 20px;
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: antiquewhite;
+  border-radius: 10px;
+}

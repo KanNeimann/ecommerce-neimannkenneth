@@ -2,8 +2,7 @@
   margin: 0;
   padding: 0;
 }
-.producto {
-  background-color: rgb(252, 246, 246);
+.productoCantidad {
   padding: 25px 20px;
   border-radius: 10px;
 }

@@ -1,5 +1,5 @@
 import './CartWidget.css'
-import { useCartContext } from '../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 
 const CartWidget = () => {
 

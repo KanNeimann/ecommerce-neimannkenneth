@@ -1,10 +1,10 @@
-import { useCartContext } from '../context/CartContext'
-import { Link } from 'react-router-dom'
-import './Cart.css'
+import { useCartContext } from '../../context/CartContext'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { getFirestore } from '../../service/getFirestore'
 import firebase from "firebase"
 import 'firebase/firestore'
-import { getFirestore } from '../../service/getFirestore'
+import './Cart.css'
 
 const Cart = () => {
     const { cartList, clear, removeItem, precioTotal } = useCartContext()
@@ -29,9 +29,11 @@ const Cart = () => {
         orden.items = cartList.map(cartItem => {
             const id = cartItem.id
             const nombre = cartItem.title
-            const precio = cartItem.price * cartItem.cantidad
+            const precio = cartItem.price
+            const cantidad = cartItem.cantidad
 
-            return { id, nombre, precio }
+
+            return { id, nombre, precio, cantidad }
         })
 
         const dbQuery = getFirestore()
@@ -41,17 +43,11 @@ const Cart = () => {
 
             .catch(err => console.log(err))
 
-
-
-        //Actualiza todos los items que estan en el listado de Cart del CartContext
-
         const itemsToUpdate = dbQuery.collection('items').where(
             firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i => i.id)
         )
 
         const batch = dbQuery.batch();
-
-        // por cada item restar del stock la cantidad de el carrito
 
         itemsToUpdate.get()
 
@@ -66,8 +62,6 @@ const Cart = () => {
                 })
             })
         console.log(orden)
-
-
     }
 
     const handleChange = (e) => {
@@ -131,7 +125,7 @@ const Cart = () => {
                             <input type='text' name='phone' placeholder='tel' defaultValue={formData.phone} required />
                             <label> Email:</label>
                             <input type='email' name='email' placeholder='email' defaultValue={formData.email} required />
-                            <button>enviar</button>
+                            <button>  enviar</button>
 
                         </form>
                         {idOrder !== '' ? <h3>Tu codigo de compra es: {idOrder}</h3> : undefined}

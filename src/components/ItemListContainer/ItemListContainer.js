@@ -16,7 +16,7 @@ const ItemListContainer = (props) => {
 
     useEffect(() => {
 
-        const dbQuery = getFirestore() // coneccion con firestore
+        const dbQuery = getFirestore()
 
         if (catId) {
             dbQuery.collection('items').where('categoryId', '==', catId).get()
@@ -24,7 +24,7 @@ const ItemListContainer = (props) => {
                 .catch(err => console.log(err))
                 .finally(() => setLoading(false))
         } else {
-            dbQuery.collection('items').get()
+            dbQuery.collection('items').orderBy('categoryId', 'asc').get()
                 .then(data => setProducts(data.docs.map(product => ({ id: product.id, ...product.data() }))))
                 .catch(err => console.log(err))
                 .finally(() => setLoading(false))

@@ -1,7 +1,7 @@
 import ItemCount from '../ItemCount/ItemCount';
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { useCartContext } from '../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 import './ItemDetail.css'
 
 function ItemDetail(product) {
@@ -31,23 +31,28 @@ function ItemDetail(product) {
     }
 
     return (
-        <div key={id} className="producto">
-            <h1>{title}</h1>
-            <img src={urlImage} alt={title} className="productoImagen"></img>
-            <p>Precio: ${price}</p>
-            <h2>{description}</h2>
-            <h3>Stock: {stock}</h3>
+        <>
+            {title === undefined ?
+                <h3>Oops! No pudimos encontrar ese producto</h3>
+                :
+                <div key={id} className="productoDetalle">
+                    <h1>{title}</h1>
+                    <img src={urlImage} alt={title} className="productoImagen"></img>
+                    <p>Precio: ${price}</p>
+                    <h2>{description}</h2>
+                    <h3>Stock: {stock}</h3>
 
 
-            {
-                inputType === 'button' ?
-                    <ItemCount stock={stock} initial={0} handleInter={handleInter} ButtonCount={ButtonCount} count={count} setCount={setCount} onAdd={onAdd} />
-                    :
-                    < InputCount />
+                    {
+                        inputType === 'button' ?
+                            <ItemCount stock={stock} initial={0} handleInter={handleInter} ButtonCount={ButtonCount} count={count} setCount={setCount} />
+                            :
+                            < InputCount />
+                    }
+                </div>
             }
+        </>
 
-
-        </div>
     )
 }
 

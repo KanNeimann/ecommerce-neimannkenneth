@@ -28,17 +28,20 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const agregarCarrito = (item) => {
-        var cartListLocal = cartList;
-        if (isInCart(item.id)) {
-            const posicion = cartList.findIndex((product) => product.id === item.id);
-            cartList[posicion].cantidad += item.cantidad;
-        } else {
-            cartListLocal = [...cartList, item]
-            setCartList([...cartList, item]);
+        if (item.cantidad !== 0) {
+            var cartListLocal = cartList;
+            if (isInCart(item.id)) {
+                const posicion = cartList.findIndex((product) => product.id === item.id);
+                cartList[posicion].cantidad += item.cantidad;
+            } else {
+                cartListLocal = [...cartList, item]
+                setCartList([...cartList, item]);
+            }
+
+            actualizarContadorItems(item.cantidad, '+');
+            actualizarPrecioTotal(cartListLocal);
         }
 
-        actualizarContadorItems(item.cantidad, '+');
-        actualizarPrecioTotal(cartListLocal);
     }
 
     const isInCart = (id) => {
