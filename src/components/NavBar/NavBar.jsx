@@ -6,7 +6,7 @@ const NavBar = () => {
         <div>
                 <nav className="navigation">
                     <ul className="nav-links">
-                        <NavLink className="navLi" to='/' activeClassName='active'>Home</NavLink>
+                        <NavLink className="navLi" to='/'>Home</NavLink>
                         <NavLink className="navLi" to='/category/gpus' >Graficas</NavLink>
                         <NavLink className="navLi" to='/category/cpus' >Procesadores</NavLink>
                         <NavLink className="navLi" to='/category/rams' >Rams</NavLink>

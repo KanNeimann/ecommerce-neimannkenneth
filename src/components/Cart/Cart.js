@@ -62,6 +62,13 @@ const Cart = () => {
                 })
             })
         console.log(orden)
+
+        let inputs = document.getElementsByClassName('inputs')
+        console.log(inputs);
+
+        inputs[0].value = ''
+        inputs[1].value = ''
+        inputs[2].value = ''
     }
 
     const handleChange = (e) => {
@@ -97,7 +104,7 @@ const Cart = () => {
                                 <tbody key={prop.id}>
                                     <tr>
                                         <td>{prop.title}</td>
-                                        <td>{prop.price}</td>
+                                        <td>$ {prop.price}</td>
                                         <td><img alt={prop.title} src={prop.urlImage} style={{ maxWidth: 50 }} /></td>
                                         <td>{prop.cantidad}</td>
                                         <td><button onClick={() => removeItem(prop.id)}>eliminar</button></td>
@@ -112,19 +119,20 @@ const Cart = () => {
 
                         <button onClick={clear}> Borrar carrito</button>
 
-                        <p>Precio total: {precioTotal}</p>
+                        <p>Precio total: $ {precioTotal}</p>
 
                         <form
                             onSubmit={generarOrden}
                             onChange={handleChange}
                             className="formulario"
+                            id='form'
                         >
-                            <label> Nombre y apeliido:</label>
-                            <input type='text' name='name' placeholder='name' defaultValue={formData.name} required />
+                            <label> Nombre y apellido:</label>
+                            <input className="inputs" type='text' name='name' placeholder='name' defaultValue={formData.name} required />
                             <label> Telefono:</label>
-                            <input type='text' name='phone' placeholder='tel' defaultValue={formData.phone} required />
+                            <input className="inputs" type='text' name='phone' placeholder='tel' defaultValue={formData.phone} required />
                             <label> Email:</label>
-                            <input type='email' name='email' placeholder='email' defaultValue={formData.email} required />
+                            <input className="inputs" type='email' name='email' placeholder='email' defaultValue={formData.email} required />
                             <button>  enviar</button>
 
                         </form>
