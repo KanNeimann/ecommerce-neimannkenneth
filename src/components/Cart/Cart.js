@@ -117,7 +117,7 @@ const Cart = () => {
                         </table>
 
 
-                        <button onClick={clear}> Borrar carrito</button>
+                        <button className="reset" onClick={clear}> Borrar carrito</button>
 
                         <p>Precio total: $ {precioTotal}</p>
 
